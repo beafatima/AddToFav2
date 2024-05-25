@@ -4,12 +4,17 @@
 
     <item
         android:id="@+id/favFragment2"
-        android:title="@string/favorites"
         android:icon="@drawable/fill_heart"
-        app:showAsAction="always"/>
-        <!--
-        app:actionLayout="@layout/fav_action_item"
-        -->
+        android:onClick="onHeartButtonClicked"
+        android:title="@string/favorites"
+        app:showAsAction="always" />
+    <!--
+
+
+
+    app:actionLayout="@layout/fav_action_item"
+
+    -->
 
 
 </menu>

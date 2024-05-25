@@ -47,11 +47,34 @@ public class MainActivity extends AppCompatActivity {
 
         itemViewModel.getFav().observe(this, favItems -> Log.d(TAG, "onChanged: " + favItems.size()));
 
+        /*
+        //click heart button
+        Button button = findViewById(R.id.favFragment2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FavFragment fragment = new FavFragment();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main, fragment);
+                fragmentTransaction.commit();
+            }
+        });
+        */
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void onHeartButtonClicked(MenuItem item) {
+        FavFragment fragment = new FavFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main, fragment);
+        fragmentTransaction.commit();
+
     }
 
     @Override
@@ -60,11 +83,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
+
 
    /*   MenuItem menuItem = menu.findItem(R.id.favFragment);
         View actionView = menuItem.getActionView();
@@ -89,4 +115,8 @@ public class MainActivity extends AppCompatActivity {
 
         return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
     }
+
+
+
+
 }

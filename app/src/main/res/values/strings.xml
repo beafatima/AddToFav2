@@ -5,4 +5,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="item_1">Item 1</string>
     <string name="add_to_favorites">ADD TO FAVORITES</string>
+    <string name="welcome_to_favorites_page">Welcome to Favorites Page</string>
 </resources>
